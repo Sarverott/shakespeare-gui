@@ -6,6 +6,6 @@ import App from "./App.vue";
 
 const app = createApp(App);
 
-app.use(GUI_PLUGIN, { view: "webapp" });
+app.use(GUI_PLUGIN, { view: "webapp", darkmode: true });
 
 app.mount("#app");
