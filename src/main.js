@@ -1,11 +1,33 @@
-import './assets/main.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import App from './App.vue'
+import "./stylesheets/main.css";
 
-const app = createApp(App)
+import ControllersPlugin from "./controllers/index.js";
 
-app.use(createPinia())
+import WebappLayoutLoader from "./layouts/webapp/_index.js";
+import MobileLayoutLoader from "./layouts/mobile/_index.js";
+import DesktopLayoutLoader from "./layouts/desktop/_index.js";
 
-app.mount('#app')
+export default {
+  install: (app, options = {}) => {
+    if (!options.hasOwnProperty("view")) {
+      options.view = "webapp";
+    }
+
+    //app.use(ControllersPlugin, options);
+    //app.use(StandardComponents, options);
+
+    switch (options.view) {
+      case "webapp":
+        app.use(WebappLayoutLoader, options);
+        break;
+      case "mobile":
+        app.use(MobileLayoutLoader, options);
+        break;
+      case "desktop":
+        app.use(DesktopLayoutLoader, options);
+        break;
+    }
+  },
+};
