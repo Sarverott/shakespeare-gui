@@ -1,27 +1,29 @@
-<script>
+<script setup>
 //import bootstrap from "bootstrap";
 
+import { inject, useId, provide } from "vue";
+
 import PathChain from "./PathChain.vue";
+import PathContent from "./PathContent.vue";
 
-export default {
-  data() {
-    return {};
-  },
+const asideMenuBoxID = inject("asideMenuBoxID");
 
-  //created() {},
-};
+const chain = inject("contextPathChain");
+const content = inject("contextPathContent");
+
+const asideMenuHeaderID = useId();
 </script>
 
 <template>
   <div
     class="offcanvas offcanvas-start"
     tabindex="-1"
-    id="contextMenuAside"
-    aria-labelledby="contextMenuAside-Label"
+    :id="asideMenuBoxID"
+    :aria-labelledby="asideMenuHeaderID"
   >
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="contextMenuAside-Label">
-        <PathChain :chain="['home', 'library', 'data']"></PathChain>
+      <h5 class="offcanvas-title" :id="asideMenuHeaderID">
+        <PathChain :chain="chain" :aside-id="asideMenuBoxID"></PathChain>
       </h5>
       <button
         type="button"
@@ -30,13 +32,7 @@ export default {
         aria-label="Close"
       ></button>
     </div>
-
-    <ul class="list-group">
-      <li class="list-group-item">dsadsads</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-      <li class="list-group-item">A fourth item</li>
-      <li class="list-group-item">And a fifth one</li>
-    </ul>
+    <PathContent :chain="chain" :content="content" :aside-id="asideMenuBoxID">
+    </PathContent>
   </div>
 </template>

@@ -1,50 +1,34 @@
 <script setup>
 //const pathLocations = [];
 import PathChainItem from "./PathChainItem.vue";
-import { ref } from "vue";
+
+import { useId } from "vue";
+
 defineProps({
+  asideId: String,
   chain: Array,
 });
-const
-export default {
-  props: {},
-  methods: {
-    generateChainBlocks(pathchain) {
-      var flagLast = true;
-      var revChain = pathchain.reverse();
-      for (var i in revChain) {
-        this.pathLoc.unshift({
-          href: "#contextmenu_" + revChain.slice(i).reverse().join("/"),
-          title: revChain[i],
-          active: flagLast,
-        });
-        flagLast = false;
-      }
-      // setup() receives props as the first argument.
-      //console.log(i);
-      console.log(this.pathLoc);
-      return this.pathLoc;
-    },
-  },
-  data() {
-    return {
-      pathLoc: [],
-    };
-  },
-};
+
+defineEmits(["openContext"]);
+
+function mergeContextPath(fullchain, index) {
+  return fullchain.slice(0, index + 1).join("/");
+}
 </script>
 
 <template>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li
-        :key="'pathLocationsContextChain' + index"
-        v-for="(item, index) in generateChainBlocks(chain)"
-        :class="item.active ? 'breadcrumb-item active' : 'breadcrumb-item '"
+      <PathChainItem
+        :key="useId()"
+        v-for="(item, index) in chain"
+        :aside-id="asideId"
+        :item-path="mergeContextPath(chain, index)"
+        :item-active="chain.length - 1 == index"
+        @open-context="openContext"
       >
-        <a v-if="!item.active" :href="item.href">{{ item.title }}</a>
-        <span v-else-if="item.active">{{ item.title }}</span>
-      </li>
+        {{ item }}
+      </PathChainItem>
     </ol>
   </nav>
 </template>
