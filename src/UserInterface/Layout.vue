@@ -1,10 +1,10 @@
 <script setup>
-import MainBody from "@/components/base/MainBody.vue";
-import LoadingScreen from "@/components/base/LoadingScreen.vue";
-import StartScreen from "@/components/base/StartScreen.vue";
-import ContextMenu from "@/components/ContextMenu/_index.vue";
-import MicroFooter from "@/components/base/MicroFooter.vue";
-import HeaderNavbar from "@/components/HeaderNavbar/_index.vue";
+import ContextMenu from "./ContextMenu/_index.vue";
+import HeaderNavbar from "./HeaderNavbar/_index.vue";
+import MainWorkspace from "./MainWorkspace/_index.vue";
+import PresentationScreen from "./PresentationScreen/_index.vue";
+import Loading from "./Loading/_index.vue";
+import StatsFooter from "./StatsFooter/_index.vue";
 
 import { provide, reactive, computed, useId } from "vue";
 
@@ -63,7 +63,7 @@ function openContext(dirpath) {
 function openItem(item) {
   alert(item);
 }
-
+var appstatus = reactive({ loading: false });
 provide("contextPathChain", contextPathChain);
 provide("contextPathContent", contextPathContent);
 provide("openContext", openContext);
@@ -71,16 +71,17 @@ provide("openItem", openItem);
 </script>
 
 <template>
+  <Loading :showmode="appstatus.loading"></Loading>
   <div class="container-fluid">
     <div>
       <HeaderNavbar></HeaderNavbar>
       <div class="d-flex flex-nowrap">
-        <MainBody></MainBody>
+        <MainWorkspace></MainWorkspace>
         <ContextMenu></ContextMenu>
       </div>
-      <MicroFooter></MicroFooter>
+      <StatsFooter></StatsFooter>
     </div>
   </div>
-  <LoadingScreen></LoadingScreen>
-  <StartScreen></StartScreen>
+
+  <PresentationScreen></PresentationScreen>
 </template>

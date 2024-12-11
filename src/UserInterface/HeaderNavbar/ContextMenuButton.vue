@@ -6,7 +6,7 @@ const asideMenuBoxID = inject("asideMenuBoxID");
 
 <template>
   <button
-    class="btn btn-secondary fs-1 px-3"
+    class="btn btn-secondary fs-1 px-4"
     type="button"
     data-bs-toggle="offcanvas"
     :data-bs-target="'#' + asideMenuBoxID"

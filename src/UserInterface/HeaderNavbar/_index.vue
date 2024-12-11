@@ -4,7 +4,7 @@ import ContextMenuButton from "./ContextMenuButton.vue";
 </script>
 
 <template>
-  <div class="d-flex gap-2 p-2">
+  <div class="d-flex gap-2 py-4 px-2">
     <ContextMenuButton></ContextMenuButton>
     <span class="fs-1 px-3">ShakeSpeare</span>
     <button class="btn btn-secondary rounded-pill px-2" type="button">
@@ -24,28 +24,4 @@ import ContextMenuButton from "./ContextMenuButton.vue";
     <button class="btn btn-dark rounded-pill px-3" type="button">Dark</button>
     <button class="btn btn-link rounded-pill px-3" type="button">Link</button>
   </div>
-  <a
-    class="btn btn-primary"
-    data-bs-toggle="offcanvas"
-    href="#offcanvasExample"
-    role="button"
-    aria-controls="offcanvasExample"
-  >
-  </a>
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-  >
-    Launch static backdrop modal
-  </button>
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
-  >
-    Launch demo modal
-  </button>
 </template>
