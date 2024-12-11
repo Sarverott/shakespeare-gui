@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "main": "src/main.js",
+  "main": "src/ReleaseSetups/webapp/_mount.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,17 +14,28 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@bwip-js/browser": "^4.5.1",
+    "@isomorphic-git/lightning-fs": "^4.6.0",
     "@popperjs/core": "^2.11.8",
+    "@umoteam/editor": "^4.5.0",
     "bootstrap": "^5.3.3",
+    "browserfs": "^1.4.3",
+    "chart.js": "^4.4.7",
     "dompurify": "^3.2.3",
+    "fontkit": "^2.0.4",
     "html2canvas": "^1.4.1",
     "isomorphic-git": "^1.27.2",
     "jspdf": "^2.5.2",
+    "lodash": "^4.17.21",
     "marked": "^15.0.3",
-    "pinia": "^2.2.4",
+    "pdfkit": "^0.15.1",
+    "print-js": "^1.6.0",
+    "prismjs": "^1.29.0",
     "react-trello": "^2.2.11",
     "reveal.js": "^5.1.0",
-    "vue": "^3.5.12"
+    "socket.io-client": "^4.8.1",
+    "vue": "3.5.10",
+    "vue-i18n": "^10.0.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
@@ -34,15 +45,22 @@
     "@vue/eslint-config-prettier": "^10.0.0",
     "@vue/test-utils": "^2.4.6",
     "chromedriver": "^130.0.1",
-    "eslint": "^9.13.0",
+    "eslint": "^9.16.0",
+    "eslint-plugin-jest": "^28.9.0",
     "eslint-plugin-vue": "^9.29.0",
     "geckodriver": "^4.5.1",
+    "jest": "^29.7.0",
+    "jest-puppeteer": "^10.1.4",
     "jsdom": "^25.0.1",
+    "mocha": "^11.0.1",
     "nightwatch": "^3.8.0",
     "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
     "vite": "^5.4.10",
     "vite-plugin-nightwatch": "^0.4.6",
-    "vitest": "^2.1.3"
+    "vitest": "^2.1.3",
+    "vue-test-utils": "^0.5.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
   }
 }
