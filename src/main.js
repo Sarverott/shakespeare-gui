@@ -5,7 +5,7 @@ import "bootstrap";
 
 import "./stylesheets/main.css";
 import { createI18n, useI18n } from "vue-i18n";
-import ControllersPlugin from "./controllers/index.js";
+import ControllersPlugin from "./WorkspaceGears/index.js";
 //import vue from "eslint-plugin-vue";
 
 import Layout from "./UserInterface/Layout.vue";
