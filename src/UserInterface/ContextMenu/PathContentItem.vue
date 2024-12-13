@@ -25,7 +25,7 @@ defineProps({
       class="btn btn-outline-danger"
       data-bs-dismiss="offcanvas"
       v-else-if="itemType == 'command'"
-      @click="$emit('openItem', itemPath, this)"
+      @click="$emit('openItem', itemPath, this, $callCommand)"
     >
       <slot></slot>
     </button>

@@ -6,10 +6,10 @@ import PresentationScreen from "./PresentationScreen/_index.vue";
 import Loading from "./Loading/_index.vue";
 import StatsFooter from "./StatsFooter/_index.vue";
 
-import LayoutControll from "@/WorkspaceGears/LayoutControll/LayoutControll";
+import LayoutControll from "@/WorkspaceGears/LayoutControll.js";
 
 const CONTROLLER = new LayoutControll();
-//console.log(CONTROLLER);
+console.log("LAYOUT:", CONTROLLER);
 </script>
 
 <template>
@@ -18,8 +18,8 @@ const CONTROLLER = new LayoutControll();
     <div>
       <HeaderNavbar></HeaderNavbar>
       <div class="d-flex flex-nowrap">
-        <MainWorkspace></MainWorkspace>
-        <ContextMenu></ContextMenu>
+        <MainWorkspace @load-namespace="$loadNamespace"></MainWorkspace>
+        <ContextMenu @load-namespace="$loadNamespace"></ContextMenu>
       </div>
       <StatsFooter></StatsFooter>
     </div>

@@ -1,7 +1,7 @@
 <script setup>
 //import bootstrap from "bootstrap";
 
-import { inject, useId, reactive, watch, computed } from "vue";
+import { inject, useId, reactive, watch, computed, provide } from "vue";
 
 import CONTROLLER from "./_controller";
 
@@ -26,8 +26,6 @@ import PathContentItem from "./PathContentItem.vue";
 CONTROLLER.getPointer();
 
 const asideMenuHeaderID = useId();
-
-function refreshArea() {}
 
 function openContextLive(...arg) {
   var result = CONTROLLER.openContext(...arg);

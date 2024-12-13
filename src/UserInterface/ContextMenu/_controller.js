@@ -2,9 +2,11 @@ import Controller from "@/WorkspaceGears/BaseController";
 
 import contextMenuScafolding from "./_setup.json" assert { type: "json" };
 
-import { provide, useId, ref, reactive } from "vue";
+//import { provide, useId, ref, reactive } from "vue";
 
-import CommandInterpreter from "@/WorkspaceGears/CommandInterpreter/_index";
+//import {callCommand} from vue;
+
+//import CommandInterpreter from "@/WorkspaceGears/CommandInterpreter/_index";
 
 //class ContextItem {}
 
@@ -90,20 +92,20 @@ class ContextMenu extends Controller {
     ContextMenu.pointer.contextPath = newpath;
   }
 
-  static async executeCommand(openpath) {
+  static async executeCommand(openpath, commandCaller) {
     var result = ContextMenu.tree;
     var args = openpath.split("/");
     var index = 0;
     for (var i of args) {
       if (typeof result === "string" || result instanceof String) {
         args = args.slice(index);
-        CommandInterpreter.callCommand(result, args);
+        commandCaller(result, args);
       } else if (result.hasOwnProperty(i)) {
         index++;
         result = result[i];
       } else break;
     }
-    CommandInterpreter.callCommand(result, []);
+    commandCaller(result, []);
   }
 
   static returnToHome() {
@@ -120,10 +122,12 @@ class ContextMenu extends Controller {
     return ContextMenu.pointer;
     //console.log(this.interfaceHook);
   }
-  static openItem(openpath) {
+  static openItem(openpath, hook, commandCaller) {
     console.log("openItem", openpath);
-    ContextMenu.executeCommand(openpath);
+    console.log(hook);
+    ContextMenu.executeCommand(openpath, commandCaller);
     ContextMenu.returnToHome();
+    return ContextMenu.pointer;
   }
 }
 
