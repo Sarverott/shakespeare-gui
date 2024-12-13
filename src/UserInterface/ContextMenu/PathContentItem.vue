@@ -6,9 +6,9 @@ defineProps({
   asideId: String,
 });
 
-import { inject } from "vue";
-const openContext = inject("openContext");
-const openItem = inject("openItem");
+//import { inject } from "vue";
+
+//const ContextMenuControll = inject("ContextMenuControll");
 </script>
 
 <template>
@@ -17,15 +17,15 @@ const openItem = inject("openItem");
       class="btn btn-outline-info"
       v-if="itemType == 'dir'"
       :href="'#' + asideId"
-      @click="openContext(itemPath)"
+      @click="$emit('openContext', itemPath, this)"
     >
       <slot></slot>
     </a>
     <button
       class="btn btn-outline-danger"
       data-bs-dismiss="offcanvas"
-      v-else-if="itemType == 'file'"
-      @click="openItem(itemPath)"
+      v-else-if="itemType == 'command'"
+      @click="$emit('openItem', itemPath, this)"
     >
       <slot></slot>
     </button>

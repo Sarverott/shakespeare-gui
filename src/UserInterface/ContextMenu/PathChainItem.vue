@@ -8,12 +8,16 @@ defineProps({
   asideId: String,
 });
 
-const openContext = inject("openContext");
+//const { openContext } = inject("ContextMenuControll");
 </script>
 
 <template>
   <li :class="itemActive ? 'breadcrumb-item active' : 'breadcrumb-item '">
-    <a v-if="!itemActive" :href="'#' + asideId" @click="openContext(itemPath)">
+    <a
+      v-if="!itemActive"
+      :href="'#' + asideId"
+      @click="$emit('openContext', itemPath, this)"
+    >
       <slot></slot>
     </a>
     <span v-else-if="itemActive">
