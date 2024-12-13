@@ -1,4 +1,4 @@
-import CommandInterpreter from "./CommandInterpreter";
+import CommandInterpreter from "./CommandInterpreter.js";
 
 export default {
   install: (app, options = {}) => {

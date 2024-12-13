@@ -3,9 +3,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 
-import "./stylesheets/main.css";
+import "./UserInterface/main.css";
 import { createI18n, useI18n } from "vue-i18n";
-import ControllersPlugin from "./WorkspaceGears/RootControll.js";
 //import vue from "eslint-plugin-vue";
 
 import Layout from "./UserInterface/Layout.vue";
