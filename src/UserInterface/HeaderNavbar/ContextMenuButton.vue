@@ -1,7 +1,7 @@
 <script setup>
 import { inject } from "vue";
 
-const asideMenuBoxID = inject("asideMenuBoxID");
+const ContextMenuControll = inject("ContextMenuControll");
 </script>
 
 <template>
@@ -9,8 +9,8 @@ const asideMenuBoxID = inject("asideMenuBoxID");
     class="btn btn-secondary fs-1 px-4"
     type="button"
     data-bs-toggle="offcanvas"
-    :data-bs-target="'#' + asideMenuBoxID"
-    :aria-controls="asideMenuBoxID"
+    :data-bs-target="'#' + ContextMenuControll.ID"
+    :aria-controls="ContextMenuControll.ID"
   >
     &Congruent;
   </button>

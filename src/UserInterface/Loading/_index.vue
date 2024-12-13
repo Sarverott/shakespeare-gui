@@ -1,5 +1,11 @@
 <script setup>
-import { reactive } from "vue";
+import { inject } from "vue";
+
+import CONTROLLER from "./_controller.js";
+
+//const CONTROLLER = new Loading();
+
+//const { showmode } = inject("LoadingControll");
 
 /*
 ROKITA 1.0.0
@@ -21,7 +27,7 @@ function loadingScreen(mode) {
 }
 document.addEventListener("DOMContentLoaded", (e) => loadingScreen("hide"));
 */
-defineProps(["showmode"]);
+//defineProps(["showmode"]);
 </script>
 
 <template>
@@ -30,7 +36,7 @@ defineProps(["showmode"]);
 	by Sarverott 2018
 	MIT Licence
 -->
-  <div id="loading-screen" :class="showmode ? 'active' : 'inactive'">
+  <div id="loading-screen" :class="CONTROLLER.showmode ? 'active' : 'inactive'">
     <div class="animation-box">
       <div class="logo-hook">
         <div class="in">

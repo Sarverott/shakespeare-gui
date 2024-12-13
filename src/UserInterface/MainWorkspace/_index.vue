@@ -1,24 +1,10 @@
-<template>
-  <umo-editor v-bind="options" />
-  <!-- Or -->
-  <!-- 
-    <umo-editor 
-      :editor-key="options.editorKey" 
-      ... 
-    /> -->
-</template>
-
-// Using Composition API
 <script setup>
-import { ref } from "vue";
-import { UmoEditor } from "@umoteam/editor";
+import { inject } from "vue";
+import Editor from "../_components/Editor/_index.vue";
 
-const options = ref({
-  locale: "en-US",
-  translations: {
-    en_US: {},
-  },
-  // Configuration options
-  // ...
-});
+const CONTROLL = inject("MainWorkspaceControll");
 </script>
+
+<template>
+  <Editor v-if="CONTROLL.view == 'editor'"></Editor>
+</template>
