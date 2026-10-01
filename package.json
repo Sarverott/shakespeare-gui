@@ -3,15 +3,28 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "main": "src/ReleaseSetups/webapp/_mount.js",
+  "main": "./dist/lib/shakespeare-gui.js",
+  "module": "./dist/lib/shakespeare-gui.js",
+  "exports": {
+    ".": "./dist/lib/shakespeare-gui.js",
+    "./style.css": "./dist/lib/style.css"
+  },
+  "files": [
+    "dist/lib"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "test:e2e": "nightwatch tests/e2e/*",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "build:lib": "vite build --mode lib",
+    "test": "task test",
+    "prepare": "husky"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.10"
   },
   "dependencies": {
     "@bwip-js/browser": "^4.5.1",
@@ -39,31 +52,34 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
-    "@nightwatch/vue": "^3.1.2",
+    "@go-task/cli": "^3.53.1",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitest/eslint-plugin": "1.1.7",
     "@vue/eslint-config-prettier": "^10.0.0",
     "@vue/test-utils": "^2.4.6",
-    "chromedriver": "^130.0.1",
     "eslint": "^9.16.0",
-    "eslint-plugin-jest": "^28.9.0",
     "eslint-plugin-vue": "^9.29.0",
-    "geckodriver": "^4.5.1",
-    "jest": "^29.7.0",
-    "jest-puppeteer": "^10.1.4",
+    "globals": "^17.13.0",
+    "husky": "^9.1.7",
     "jsdom": "^25.0.1",
     "less": "^4.2.1",
-    "less-loader": "^12.2.0",
-    "mocha": "^11.0.1",
-    "nightwatch": "^3.8.0",
     "prettier": "^3.3.3",
-    "sass-embedded": "^1.82.0",
-    "ts-node": "^10.9.2",
     "vite": "^5.4.10",
-    "vite-plugin-nightwatch": "^0.4.6",
-    "vitest": "^2.1.3",
-    "vue-test-utils": "^0.5.0",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^5.1.4"
+    "vitest": "^2.1.3"
+  },
+  "description": "Unified graphical user interface of Shakespeare, shared by every platform release (web, desktop, mobile) - for writters to writters to write books easier, better and with results attchiving faster",
+  "keywords": [
+    "shakespeare",
+    "vue",
+    "gui"
+  ],
+  "author": "Sett Sarverott A.A.B. <sett@sarverott.com> (https://sett.sarverott.com)",
+  "homepage": "https://github.com/Sarverott/shakespeare-gui#readme",
+  "bugs": {
+    "url": "https://github.com/Sarverott/shakespeare-gui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarverott/shakespeare-gui.git"
   }
 }

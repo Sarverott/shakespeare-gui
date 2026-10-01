@@ -1,0 +1,35 @@
+[project]
+name = "shakespeare-gui"
+version = "0.0.1"
+description = "Unified graphical user interface of Shakespeare, shared by every platform release (web, desktop, mobile) - for writters to writters to write books easier, better and with results attchiving faster"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+keywords = ["shakespeare", "vue", "gui"]
+authors = [
+    {name = "Sett Sarverott A.A.B.", email = "sett@sarverott.com"},
+]
+
+[project.urls]
+Homepage = "https://github.com/Sarverott/shakespeare-gui"
+Repository = "https://github.com/Sarverott/shakespeare-gui"
+Issues = "https://github.com/Sarverott/shakespeare-gui/issues"
+
+[tool.uv]
+# development tooling only (commitizen, metadata sync); src/ holds the Vue app, not a Python package
+package = false
+
+[dependency-groups]
+dev = [
+    "commitizen>=4.19.0",
+    "tomlkit>=0.15.1",
+]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version_provider = "uv"
+version_files = ['metadata.json:"version"']
+tag_format = "v$version"
+update_changelog_on_bump = true
+major_version_zero = true
+pre_bump_hooks = ["task sync"]
