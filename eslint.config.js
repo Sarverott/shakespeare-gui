@@ -1,18 +1,28 @@
-const jest = require("eslint-plugin-jest");
+import globals from "globals";
+import js from "@eslint/js";
+import pluginVue from "eslint-plugin-vue";
+import pluginVitest from "@vitest/eslint-plugin";
+import skipFormatting from "@vue/eslint-config-prettier/skip-formatting";
 
-module.exports = [
-  ...require("@eslint/js").configs.recommended,
+export default [
   {
-    files: ["test/**"],
-    ...jest.configs["flat/recommended"],
-    rules: {
-      ...jest.configs["flat/recommended"].rules,
-      "jest/prefer-expect-assertions": "off",
+    name: "app/files-to-lint",
+    files: ["**/*.{js,mjs,jsx,vue}"],
+  },
+  {
+    name: "app/files-to-ignore",
+    ignores: ["**/dist/**", "**/coverage/**", "**/.venv/**"],
+  },
+  {
+    languageOptions: {
+      globals: globals.browser,
     },
   },
-  // you can also configure jest rules in other objects, so long as some of the `files` match
+  js.configs.recommended,
+  ...pluginVue.configs["flat/essential"],
   {
-    files: ["test/**"],
-    rules: { "jest/prefer-expect-assertions": "off" },
+    ...pluginVitest.configs.recommended,
+    files: ["src/**/__tests__/*", "tests/**"],
   },
+  skipFormatting,
 ];

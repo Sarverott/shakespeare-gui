@@ -31,3 +31,6 @@ coverage
 
 logs/
 tests_output/
+
+# Python tooling
+.venv
