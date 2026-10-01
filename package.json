@@ -7,7 +7,7 @@
   "module": "./dist/lib/shakespeare-gui.js",
   "exports": {
     ".": "./dist/lib/shakespeare-gui.js",
-    "./style.css": "./dist/lib/style.css"
+    "./style.css": "./dist/lib/shakespeare-gui.css"
   },
   "files": [
     "dist/lib"
@@ -23,49 +23,32 @@
     "test": "task test",
     "prepare": "husky"
   },
-  "peerDependencies": {
-    "vue": "^3.5.10"
-  },
   "dependencies": {
-    "@bwip-js/browser": "^4.5.1",
-    "@isomorphic-git/lightning-fs": "^4.6.0",
+    "@isomorphic-git/lightning-fs": "^4.10.3",
     "@popperjs/core": "^2.11.8",
-    "@umoteam/editor": "^4.5.0",
-    "bootstrap": "^5.3.3",
+    "@umoteam/editor": "^11.1.1",
+    "bootstrap": "^5.3.8",
     "browserfs": "^1.4.3",
-    "chart.js": "^4.4.7",
-    "dompurify": "^3.2.3",
-    "fontkit": "^2.0.4",
-    "html2canvas": "^1.4.1",
-    "isomorphic-git": "^1.27.2",
-    "jspdf": "^2.5.2",
-    "lodash": "^4.17.21",
-    "marked": "^15.0.3",
-    "pdfkit": "^0.15.1",
-    "print-js": "^1.6.0",
-    "prismjs": "^1.29.0",
-    "react-trello": "^2.2.11",
-    "reveal.js": "^5.1.0",
-    "socket.io-client": "^4.8.1",
-    "vue": "3.5.10",
-    "vue-i18n": "^10.0.5"
+    "chart.js": "^4.5.1",
+    "isomorphic-git": "^1.42.6",
+    "vue": "^3.5.43",
+    "vue-i18n": "^11.4.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
-    "@go-task/cli": "^3.53.1",
-    "@vitejs/plugin-vue": "^5.1.4",
-    "@vitest/eslint-plugin": "1.1.7",
+    "@vitejs/plugin-vue": "^6.0.9",
+    "@vitest/eslint-plugin": "^1.6.27",
     "@vue/eslint-config-prettier": "^10.0.0",
-    "@vue/test-utils": "^2.4.6",
+    "@vue/test-utils": "^2.5.1",
     "eslint": "^9.16.0",
     "eslint-plugin-vue": "^9.29.0",
     "globals": "^17.13.0",
     "husky": "^9.1.7",
-    "jsdom": "^25.0.1",
-    "less": "^4.2.1",
-    "prettier": "^3.3.3",
-    "vite": "^5.4.10",
-    "vitest": "^2.1.3"
+    "jsdom": "^30.1.1",
+    "less": "^4.9.1",
+    "prettier": "^3.9.9",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
   },
   "description": "Unified graphical user interface of Shakespeare, shared by every platform release (web, desktop, mobile) - for writters to writters to write books easier, better and with results attchiving faster",
   "keywords": [
@@ -81,5 +64,14 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sarverott/shakespeare-gui.git"
+  },
+  "overrides": {
+    "@tiptap/core": "^3.31.4",
+    "@tiptap/extension-unique-id": {
+      "uuid": "^11.1.1"
+    },
+    "@tiptap/extension-table-of-contents": {
+      "uuid": "^11.1.1"
+    }
   }
 }

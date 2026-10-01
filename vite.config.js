@@ -8,10 +8,6 @@ import vue from "@vitejs/plugin-vue";
 // `vite build --mode lib` builds the GUI plugin (src/main.js) into dist/lib for other releases (mobile, desktop).
 export default defineConfig(({ mode }) => ({
   plugins: [vue()],
-  // controllers are provided/injected by class name (BaseController), minification must not rename them
-  esbuild: {
-    keepNames: true,
-  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -27,12 +23,21 @@ export default defineConfig(({ mode }) => ({
             formats: ["es"],
             fileName: "shakespeare-gui",
           },
-          rollupOptions: {
+          rolldownOptions: {
             // the host app provides its own Vue instance
             external: ["vue"],
+            output: {
+              // controllers are provided/injected by class name (BaseController), keep them through minification
+              keepNames: true,
+            },
           },
         }
       : {
           outDir: "dist/app",
+          rolldownOptions: {
+            output: {
+              keepNames: true,
+            },
+          },
         },
 }));
